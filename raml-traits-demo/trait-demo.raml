@@ -1,0 +1,9 @@
+#%RAML 1.0
+title: Trait Demo
+
+traits:
+  order-params: !include /dataTypes/order-parameters.raml
+
+/order:
+  get:
+    is: order-params
