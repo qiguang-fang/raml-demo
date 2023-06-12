@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: File API
+
+/file:
+  get:
+    description: Get the contents of a file by either filename or fileID
+    queryParameters:
+      fileID:
+        description: The ID of the file
+        type: string
+        required: false
+        example: abc-123
+      fileName:
+        description: The name of the file including the full path to the file
+        type: string
+        required: false
+        example: path/to/file/test.txt
+    responses:
+        200:
+          body:
+            application/json:
+              example: {"message": "success","content":{}}
+  put:
+    description: Update the contents of a file by either filename or fileID
+    queryParameters:
+      fileID:
+        description: The ID of the file
+        type: string
+        required: false
+        example: abc-123
+      fileName:
+        description: The name of the file including the full path to the file
+        type: string
+        required: false
+        example: path/to/file/test.txt
+    body:
+      text/plain:
+        example: My file content
+    responses:
+        200:
+          body:
+            application/json:
+              example: {"message": "success","content":{}}
