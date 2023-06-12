@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: Employee
+
+types:
+  employee: !include /dataTypes/employeeDataType.raml
+
+/employee:
+  description: get update employee info
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            items: employee
+  /{ID}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: employee
+    put:
+      responses:
+        201:
+          body:
+            application/json:
+              type: string
+              example: "employee update success"

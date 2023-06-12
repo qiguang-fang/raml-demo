@@ -1,0 +1,36 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  id: 
+    type: integer
+    description: The unique identifier of the employee
+    example: 100
+  username: 
+    type: string
+    description: The name of the employee
+    example: Tom
+  email: 
+    type: string
+    description: The email of the employee
+    example: 123@g123.com
+  address: 
+    type: object
+    description: The address of the employee
+    properties:
+      street: 
+        type: string
+        description: The street of the employee's address
+        example: Main Street
+      city: 
+        type: string
+        description: The city of the employee's address
+        example: New York
+      postalCode: 
+        type: integer
+        description: The postal code of the employee's address
+        example: 10001
+  registrationDate: 
+    type: date-only
+    description: The date the employee registered
+    example: 2023-01-01
