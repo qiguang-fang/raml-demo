@@ -4,26 +4,57 @@ title: Employee
 types:
   employee: !include /dataTypes/employeeDataType.raml
 
-/employee:
-  description: get update employee info
+/employees:
   get:
+    description: Get a list of all employees
     responses:
       200:
         body:
           application/json:
-            type: array
-            items: employee
-  /{ID}:
+              properties:
+                message:
+                  description: responses message
+                  type: string
+                  example: "success"
+                content:
+                  description: list of all employees 
+                  type: array
+                  items: employee
+  /{employeeID}:
     get:
+      description: Get a single employee's info
       responses:
         200:
           body:
             application/json:
-              type: employee
+              properties:
+                message:
+                  description: responses message
+                  type: string
+                  example: "success"
+                content:
+                  description: single employee's info
+                  type: employee
     put:
+      description: Update a single employee's info
+      headers:
+        Content-Type: 
+          type: string
+          example: application/json
+      body:
+        application/json:
+          description: Updated single employee's info
+          type: employee
       responses:
-        201:
+        200:
           body:
             application/json:
-              type: string
-              example: "employee update success"
+              properties:
+                message:
+                  description: responses message
+                  type: string
+                  example: "employee update success"
+                content:
+                  description: responses
+                  type: object
+                  example: {}
